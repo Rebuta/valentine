@@ -102,8 +102,8 @@ noBtn.addEventListener('mouseover', () => {
   attempts++;
   
   // Generate random translation values (in pixels or %)
-  const randomX = (Math.random() * 400 - 200) + 'px';  // -200 to +200 px left/right
-  const randomY = (Math.random() * 300 - 150) + 'px';  // -150 to +150 px up/down
+  const randomX = (Math.random() * 600 - 300) + 'px';  // -200 to +200 px left/right
+  const randomY = (Math.random() * 600 - 300) + 'px';  // -150 to +150 px up/down
   
   noBtn.style.transform = `translate(${randomX}, ${randomY})`;
   noBtn.style.transition = 'transform 0.4s ease';  // smooth movement
@@ -117,6 +117,7 @@ noBtn.addEventListener('mouseover', () => {
   </script>
 </body>
 </html>
+
 
 
 
