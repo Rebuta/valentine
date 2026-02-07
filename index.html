@@ -49,6 +49,7 @@
       background: white;
       color: #ff4d4d;
       border: 2px solid #ff4d4d;
+      
 
     }
     #catPopup {
@@ -91,33 +92,31 @@
   </div>
 
   <script>
-    const noBtn = document.getElementById('noBtn');
-    const yesBtn = document.getElementById('yesBtn');
-    const catPopup = document.getElementById('catPopup');
+const noBtn = document.getElementById('noBtn');
+const yesBtn = document.getElementById('yesBtn');
+const catPopup = document.getElementById('catPopup');
 
-    let attempts = 0;
+let attempts = 0;
 
-    noBtn.addEventListener('mouseover', () => {
-      attempts++;
-      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 100);
-      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 100);
-      noBtn.style.left = `${x}px`;
-      noBtn.style.top = `${y}px`;
-      noBtn.style.transform = 'none'; // override initial centering
+noBtn.addEventListener('mouseover', () => {
+  attempts++;
+  
+  // Generate random translation values (in pixels or %)
+  const randomX = (Math.random() * 400 - 200) + 'px';  // -200 to +200 px left/right
+  const randomY = (Math.random() * 300 - 150) + 'px';  // -150 to +150 px up/down
+  
+  noBtn.style.transform = `translate(${randomX}, ${randomY})`;
+  noBtn.style.transition = 'transform 0.4s ease';  // smooth movement
 
-      // After 3-5 attempts, show cat popup instead of letting them keep trying
-      if (attempts >= 4) {
-        catPopup.style.display = 'block';
-        noBtn.style.display = 'none'; // hide No button
-      }
-    });
-
-    yesBtn.addEventListener('click', () => {
-      alert("Yay! You said yes! ❤️ I love you so much! 😘");
-      // Optional: redirect or show confetti/animation here
-    });
+  // After enough attempts, show cat popup
+  if (attempts >= 4) {
+    catPopup.style.display = 'block';
+    noBtn.style.display = 'none'; // or keep it but disable pointer events
+  }
+});
   </script>
 </body>
 </html>
+
 
 
